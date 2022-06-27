@@ -1,3 +1,11 @@
+HTTP Methods
+------------
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+
+Status Codes
+--------------
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
 TO download the mongoDB
 
 https://www.mongodb.com/try/download/community
