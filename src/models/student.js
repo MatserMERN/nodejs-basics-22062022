@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose"
 //mongoose.pluralize(null);
 const Schema = mongoose.Schema
 
@@ -25,10 +25,10 @@ studentSchema.index({'$**': 'text'});
 // const Student  = mongoose.model("student", studentSchema, "student")
 // module.exports = Student
 
-const Student = module.exports = mongoose.model("student", studentSchema, "student")
+export const  Student  = mongoose.model("student", studentSchema, "student")
 
 
-module.exports.getStudents = function(callback){
+export function getStudents(callback){
     Student.find(callback)
 }
 
@@ -39,21 +39,20 @@ module.exports.getStudents = function(callback){
 // module.exports.getStudentById = function(studentId, callback){
 //     Student.findById(studentId, callback)
 // }
-
-module.exports.getStudentByText = function(text, callback){
+export function getStudentByText(text, callback){
     const filter = mongoose.isObjectIdOrHexString(text) ? {_id: text}
                                                         : {$text: {$search: text}}
     Student.find(filter, callback)
 }
 
-module.exports.createStudent = function(student, callback){
+export  function createStudent(student, callback){
     Student.create(student, callback)
 }
 
-module.exports.updateStudent = function(studentId, student, callback){
+export  function updateStudent(studentId, student, callback){
     Student.updateOne({_id: studentId}, student, callback)
 }
 
-module.exports.deleteStudent = function(studentId, callback){
+export  function deleteStudent(studentId, callback){
     Student.deleteOne({_id: studentId}, callback)
 }
